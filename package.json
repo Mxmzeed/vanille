@@ -1,0 +1,23 @@
+{
+  "name": "vanille",
+  "version": "0.0.0",
+  "private": true,
+  "license": "AGPL-3.0-only",
+  "description": "bootstrap commands for the vanille service stack.",
+  "engines": {
+    "node": ">=22.13.0",
+    "npm": ">=10"
+  },
+  "scripts": {
+    "setup": "npm --prefix frontmatter ci && npm --prefix frontpage ci && npm --prefix backend ci && uv sync --directory db --frozen",
+    "dev:frontmatter": "npm --prefix frontmatter run dev",
+    "dev:frontpage": "npm --prefix frontpage run dev",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:db": "cd db && uv run --frozen --env-file ../.env uvicorn vanille_db.main:app --host 127.0.0.1 --port 9003 --reload",
+    "build": "npm --prefix frontmatter run build && npm --prefix frontpage run build && npm --prefix backend run build",
+    "check": "npm --prefix frontmatter run typecheck && npm --prefix frontmatter run lint && npm --prefix frontpage run typecheck && npm --prefix frontpage run lint && npm --prefix backend run typecheck && npm --prefix backend run lint && uv run --directory db --frozen ruff check src && uv run --directory db --frozen python -m compileall -q src",
+    "stack:up": "docker compose up --build -d --wait",
+    "stack:down": "docker compose down",
+    "stack:logs": "docker compose logs --follow"
+  }
+}

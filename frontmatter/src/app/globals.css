@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --color-beige: #f3eadc;
+  --color-brown: #6b4f3a;
+  --color-white: #ffffff;
+  --color-onyx: #242321;
+}
+
+body {
+  margin: 0;
+  background: var(--color-beige);
+  color: var(--color-onyx);
+  font-family: system-ui, sans-serif;
+}
+
+main {
+  padding: 2rem;
+}
+
+h1 {
+  font-size: 2rem;
+}

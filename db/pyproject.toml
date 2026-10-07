@@ -1,0 +1,31 @@
+[project]
+name = "vanille-db"
+version = "0.0.0"
+description = "vanille memory service bootstrap"
+requires-python = ">=3.13"
+license = "AGPL-3.0-only"
+dependencies = [
+    "fastapi>=0.142.2,<0.143",
+    "neo4j>=6.4.0,<7",
+    "uvicorn>=0.54.0,<0.55",
+]
+
+[dependency-groups]
+dev = ["ruff>=0.16.10,<0.17"]
+
+[build-system]
+requires = ["uv_build>=0.12.23,<0.13"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "vanille_db"
+module-root = "src"
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+extend-exclude = ["human_memory", "sage"]
+force-exclude = true
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]

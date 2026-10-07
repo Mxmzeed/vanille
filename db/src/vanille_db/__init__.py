@@ -1,0 +1,1 @@
+"""vanille memory service bootstrap."""

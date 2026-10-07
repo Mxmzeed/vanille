@@ -1,0 +1,28 @@
+# local configuration
+.env
+.env.*
+!**/.env.example
+
+# javascript dependencies and generated output
+node_modules/
+.next/
+out/
+dist/
+coverage/
+*.tsbuildinfo
+
+# python environments and generated output
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+build/
+
+# local editor and operating system files
+.idea/
+.vscode/
+.DS_Store
+*.log
